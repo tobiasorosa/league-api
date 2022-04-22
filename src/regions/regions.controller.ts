@@ -9,4 +9,9 @@ export class RegionsController {
   getRegion(region: string) {
     return this.regionsService.getRegion(region);
   }
+
+  @Get()
+  getRouting(region: string) {
+    return this.regionsService.getRouting(region);
+  }
 }

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Query } from '@nestjs/common';
 import { SummonerService } from './summoner.service';
 
 @Controller('summoner')
@@ -11,7 +11,7 @@ export class SummonerController {
   }
 
   @Get()
-  findByName(@Body('name') name: string, @Body('region') region: string) {
+  findByName(@Query('name') name: string, @Body('region') region: string) {
     return this.summonerService.findByName(name, region);
   }
 }

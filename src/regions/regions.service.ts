@@ -1,5 +1,5 @@
 import { Get, Injectable } from '@nestjs/common';
-import { regions } from 'src/constants/regions';
+import { regions, routes } from 'src/constants/regions';
 
 @Injectable()
 export class RegionsService {
@@ -28,6 +28,26 @@ export class RegionsService {
         return regions.TR1;
       case 'RU':
         return regions.RU;
+    }
+  }
+
+  @Get()
+  getRouting(region: string): string {
+    switch (region) {
+      case 'BR':
+      case 'NA':
+      case 'LA1':
+      case 'LA2':
+      case 'OC':
+        return routes.AMERICAS;
+      case 'TR':
+      case 'RU':
+      case 'EUW':
+      case 'EUN':
+        return routes.EUROPE;
+      case 'JP':
+      case 'KR':
+        return routes.ASIA;
     }
   }
 }

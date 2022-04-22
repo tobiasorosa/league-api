@@ -11,3 +11,9 @@ export const regions = {
   TR1: 'tr1.api.riotgames.com',
   RU: 'ru.api.riotgames.com',
 };
+
+export const routes = {
+  AMERICAS: 'americas',
+  ASIA: 'asia',
+  EUROPE: 'europe',
+};
