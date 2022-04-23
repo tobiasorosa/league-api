@@ -1,12 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Get, Body, Param } from '@nestjs/common';
 import { MatchService } from './match.service';
 
 @Controller('match')
@@ -19,5 +11,10 @@ export class MatchController {
     @Body('region') region: string,
   ) {
     return this.matchService.findFirstMatches(puuid, region);
+  }
+
+  @Get('details/:id')
+  findById(@Param('id') id: string, @Body('region') region: string) {
+    return this.matchService.findById(id, region);
   }
 }
