@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { SummonerModule } from './summoner/summoner.module';
 import { ConfigModule } from '@nestjs/config';
 import { MatchModule } from './match/match.module';
+import { ProfileModule } from './profile/profile.module';
 
 @Module({
   controllers: [AppController],
@@ -14,6 +15,7 @@ import { MatchModule } from './match/match.module';
       isGlobal: true,
     }),
     MatchModule,
+    ProfileModule,
   ],
 })
 export class AppModule {}
