@@ -24,9 +24,11 @@ export class ProfileService {
       region,
     );
 
-    const firstMatchesData = firstMatches.map(async (matchId) => {
-      return await this.matchService.findById(matchId, region);
-    });
+    const firstMatchesData = await Promise.all(
+      firstMatches.map(async (matchId) => {
+        return await this.matchService.findById(matchId, region);
+      }),
+    );
 
     return {
       summoner,
