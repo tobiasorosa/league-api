@@ -2,6 +2,7 @@ import { HttpService } from '@nestjs/axios';
 import { Get, Injectable, NotFoundException } from '@nestjs/common';
 import { lastValueFrom } from 'rxjs';
 import { RegionsService } from 'src/regions/regions.service';
+import { MatchDto } from './entities/match-dto.entity';
 
 @Injectable()
 export class MatchService {
@@ -11,7 +12,10 @@ export class MatchService {
   ) {}
 
   @Get()
-  async findFirstMatches(puuid: string, region: string) {
+  async findFirstMatches(
+    puuid: string,
+    region: string,
+  ): Promise<string[] | undefined> {
     const regionHost = this.regionsService.getRouting(region);
     const summoner = await lastValueFrom(
       this.httpService.get(
@@ -34,7 +38,7 @@ export class MatchService {
   }
 
   @Get()
-  async findById(matchId: string, region: string) {
+  async findById(matchId: string, region: string): Promise<MatchDto> {
     const regionHost = this.regionsService.getRouting(region);
     const summoner = await lastValueFrom(
       this.httpService.get(
