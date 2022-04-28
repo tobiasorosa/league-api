@@ -5,6 +5,9 @@ import { SummonerModule } from './summoner/summoner.module';
 import { ConfigModule } from '@nestjs/config';
 import { MatchModule } from './match/match.module';
 import { ProfileModule } from './profile/profile.module';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { join } from 'path';
 
 @Module({
   controllers: [AppController],
@@ -16,6 +19,10 @@ import { ProfileModule } from './profile/profile.module';
     }),
     MatchModule,
     ProfileModule,
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+    }),
   ],
 })
 export class AppModule {}

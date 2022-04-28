@@ -1,5 +1,7 @@
+import { ObjectType } from '@nestjs/graphql';
 import { IsArray, IsString } from 'class-validator';
 
+@ObjectType()
 export class MetadataDto {
   @IsString()
   readonly dataVersion: string;

@@ -1,5 +1,7 @@
+import { ObjectType } from '@nestjs/graphql';
 import { IsNumber } from 'class-validator';
 
+@ObjectType()
 export class PerkStyleSelectionDto {
   @IsNumber()
   readonly perk: number;

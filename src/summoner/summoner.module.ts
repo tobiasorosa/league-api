@@ -5,10 +5,11 @@ import { RegionsModule } from 'src/regions/regions.module';
 import { RegionsService } from 'src/regions/regions.service';
 import { SummonerController } from './summoner.controller';
 import { SummonerService } from './summoner.service';
+import { SummonerResolver } from './summoner.resolver';
 
 @Module({
   imports: [HttpModule, RegionsModule],
   controllers: [SummonerController, RegionsController],
-  providers: [SummonerService, RegionsService],
+  providers: [SummonerService, RegionsService, SummonerResolver],
 })
 export class SummonerModule {}

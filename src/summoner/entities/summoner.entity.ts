@@ -1,6 +1,8 @@
+import { ObjectType } from '@nestjs/graphql';
 import { IsNumber, IsString } from 'class-validator';
 
-export class Summoner {
+@ObjectType()
+export class SummonerDto {
   @IsString()
   readonly id: string;
 

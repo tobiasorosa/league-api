@@ -1,6 +1,8 @@
+import { ObjectType } from '@nestjs/graphql';
 import { IsBoolean, IsNumber, IsObject, IsString } from 'class-validator';
 import { PerksDto } from './perks-dto.entity';
 
+@ObjectType()
 export class ParticipantDto {
   @IsNumber()
   readonly assists: number;

@@ -1,6 +1,8 @@
+import { ObjectType } from '@nestjs/graphql';
 import { IsObject } from 'class-validator';
 import { ObjectiveDto } from './objective-dto.entity';
 
+@ObjectType()
 export class ObjectivesDto {
   @IsObject()
   readonly baron: ObjectiveDto;

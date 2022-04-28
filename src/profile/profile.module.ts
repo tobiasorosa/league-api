@@ -11,6 +11,7 @@ import { SummonerService } from 'src/summoner/summoner.service';
 import { MatchController } from 'src/match/match.controller';
 import { MatchService } from 'src/match/match.service';
 import { MatchModule } from 'src/match/match.module';
+import { ProfileResolver } from './profile.resolver';
 
 @Module({
   imports: [HttpModule, RegionsModule, SummonerModule, MatchModule],
@@ -20,6 +21,12 @@ import { MatchModule } from 'src/match/match.module';
     SummonerController,
     MatchController,
   ],
-  providers: [ProfileService, RegionsService, SummonerService, MatchService],
+  providers: [
+    ProfileService,
+    RegionsService,
+    SummonerService,
+    MatchService,
+    ProfileResolver,
+  ],
 })
 export class ProfileModule {}

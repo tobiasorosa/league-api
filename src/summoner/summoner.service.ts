@@ -2,7 +2,7 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { lastValueFrom } from 'rxjs';
 import { RegionsService } from 'src/regions/regions.service';
-import { Summoner } from './entities/summoner.entity';
+import { SummonerDto } from './entities/summoner.entity';
 
 @Injectable()
 export class SummonerService {
@@ -36,7 +36,7 @@ export class SummonerService {
   async findByName(
     name: string,
     region: string,
-  ): Promise<Summoner | undefined> {
+  ): Promise<SummonerDto | undefined> {
     const regionHost = this.regionsService.getRegion(region);
     const summoner = await lastValueFrom(
       this.httpService.get(

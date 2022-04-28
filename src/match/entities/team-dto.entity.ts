@@ -1,7 +1,9 @@
+import { ObjectType } from '@nestjs/graphql';
 import { IsArray, IsBoolean, IsNumber, IsObject } from 'class-validator';
 import { BanDto } from './ban-dto.entity';
 import { ObjectivesDto } from './objectives-dto.entity';
 
+@ObjectType()
 export class TeamDto {
   @IsArray({
     each: true,

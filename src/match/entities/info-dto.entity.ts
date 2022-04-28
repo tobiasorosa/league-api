@@ -1,7 +1,9 @@
+import { ObjectType } from '@nestjs/graphql';
 import { IsArray, IsNumber, IsString } from 'class-validator';
 import { ParticipantDto } from './participant-dto.entity';
 import { TeamDto } from './team-dto.entity';
 
+@ObjectType()
 export class InfoDto {
   @IsNumber()
   readonly gameCreation: number;
