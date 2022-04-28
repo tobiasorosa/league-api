@@ -1,12 +1,10 @@
-import { HttpService } from '@nestjs/axios';
-import { Get, Injectable, NotFoundException, Param } from '@nestjs/common';
+import { Get, Injectable, NotFoundException } from '@nestjs/common';
 import { MatchService } from 'src/match/match.service';
 import { SummonerService } from 'src/summoner/summoner.service';
 
 @Injectable()
 export class ProfileService {
   constructor(
-    private httpService: HttpService,
     private matchService: MatchService,
     private summonerService: SummonerService,
   ) {}
