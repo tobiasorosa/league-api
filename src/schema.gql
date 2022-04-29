@@ -205,5 +205,5 @@ type ProfileDto {
 }
 
 type Query {
-  getProfileByName(name: String!, region: String!): ProfileDto!
+  profile(name: String!, region: String!): ProfileDto!
 }

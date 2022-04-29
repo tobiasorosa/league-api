@@ -7,7 +7,7 @@ export class ProfileResolver {
   constructor(private readonly profileService: ProfileService) {}
 
   @Query(() => ProfileDto)
-  async getProfileByName(
+  async profile(
     @Args('name') name: string,
     @Args('region') region: string,
   ): Promise<ProfileDto> {
