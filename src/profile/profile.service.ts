@@ -1,6 +1,7 @@
 import { Get, Injectable, NotFoundException } from '@nestjs/common';
 import { MatchService } from 'src/match/match.service';
 import { SummonerService } from 'src/summoner/summoner.service';
+import { ProfileDto } from './entities/profile-dto';
 
 @Injectable()
 export class ProfileService {
@@ -10,12 +11,17 @@ export class ProfileService {
   ) {}
 
   @Get()
-  async getSummonerByName(name: string, region: string) {
+  async getSummonerByName(name: string, region: string): Promise<ProfileDto> {
     const summoner = await this.summonerService.findByName(name, region);
 
     if (!summoner) {
       throw new NotFoundException('Summoner not found in selected server');
     }
+
+    const summonerRank = await this.summonerService.getRank(
+      summoner.id,
+      region,
+    );
 
     const firstMatches = await this.matchService.findFirstMatches(
       summoner.puuid,
@@ -31,6 +37,7 @@ export class ProfileService {
     return {
       summoner,
       firstMatchesData,
+      summonerRank,
     };
   }
 }
