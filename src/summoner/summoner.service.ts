@@ -59,10 +59,7 @@ export class SummonerService {
     return summoner.data;
   }
 
-  async getRank(
-    id: string,
-    region: string,
-  ): Promise<RankDto | RankDto[] | undefined> {
+  async getRank(id: string, region: string): Promise<RankDto[] | undefined> {
     const regionHost = this.regionsService.getRegion(region);
 
     const summonerRank = await lastValueFrom(

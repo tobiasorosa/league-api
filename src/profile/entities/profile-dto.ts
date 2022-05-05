@@ -15,6 +15,6 @@ export class ProfileDto {
   readonly firstMatchesData: MatchDto[];
 
   @IsObject()
-  @Field()
-  readonly summonerRank: RankDto | RankDto[];
+  @Field(() => [RankDto])
+  readonly summonerRank: RankDto[];
 }

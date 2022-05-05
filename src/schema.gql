@@ -189,6 +189,21 @@ type MatchDto {
   info: InfoDto!
 }
 
+type RankDto {
+  leagueId: String!
+  queueType: String!
+  tier: String!
+  rank: String!
+  summonerId: String!
+  leaguePoints: Float!
+  wins: Float!
+  losses: Float!
+  veteran: Boolean!
+  inactive: Boolean!
+  freshBlood: Boolean!
+  hotStreak: Boolean!
+}
+
 type SummonerDto {
   id: String!
   accountId: String!
@@ -202,6 +217,7 @@ type SummonerDto {
 type ProfileDto {
   summoner: SummonerDto!
   firstMatchesData: [MatchDto!]!
+  summonerRank: [RankDto!]!
 }
 
 type Query {

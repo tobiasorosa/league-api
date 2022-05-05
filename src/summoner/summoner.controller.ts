@@ -15,7 +15,7 @@ export class SummonerController {
     return this.summonerService.findByName(name, region);
   }
 
-  @Get()
+  @Get('rank')
   getRank(@Query('id') id: string, @Body('region') region: string) {
     return this.summonerService.getRank(id, region);
   }
